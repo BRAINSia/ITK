@@ -161,7 +161,6 @@ public:
    * Try to prototype this function so that val has to point to a block of
    * memory that is the appropriate size.
    * \sa GetIndex() */
-
   void SetIndex(const IndexValueType val[VIndexDimension]);
 
   /** Sets the value of one of the elements in the index.
