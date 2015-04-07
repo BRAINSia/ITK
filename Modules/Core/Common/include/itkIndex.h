@@ -263,7 +263,7 @@ extern template class itk::Functor::IndexLexicographicCompare<2u>;
 extern template class itk::Functor::IndexLexicographicCompare<3u>;
 extern template class itk::Functor::IndexLexicographicCompare<4u>;
 
-#if ITK_TEMPLATE_TXX
+#if !ITK_MANUAL_INSTANTIATION
 #include "itkIndex.hxx"
 #endif
 

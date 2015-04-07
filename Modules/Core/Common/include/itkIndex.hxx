@@ -1,5 +1,5 @@
-#ifndef ITKINDEX_HXX
-#define ITKINDEX_HXX
+#ifndef itkIndex_hxx
+#define itkIndex_hxx
 
 #include "itkIndex.h"
 
