@@ -1,3 +1,6 @@
+#ifndef ITKINDEX_HXX
+#define ITKINDEX_HXX
+
 #include "itkIndex.h"
 
 namespace itk
@@ -261,3 +264,5 @@ IndexLexicographicCompare<VIndexDimension>
 
 } // End namepace Functor
 } // End namespace itk
+
+#endif
