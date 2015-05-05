@@ -20,6 +20,7 @@
 
 #include "itkMacro.h"
 #include "metaEvent.h"
+#include "ITKSpatialObjectsExport.h"
 
 namespace itk
 {
@@ -31,7 +32,7 @@ namespace itk
  * by the MetaIO/src/metaEvent.h class.
  * \ingroup ITKSpatialObjects
  */
-class MetaEvent : public ::MetaEvent
+class ITKSpatialObjects_EXPORT MetaEvent : public ::MetaEvent
 {
 public:
   MetaEvent();

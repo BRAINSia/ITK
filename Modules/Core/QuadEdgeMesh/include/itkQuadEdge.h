@@ -219,6 +219,7 @@ namespace itk
  * \ingroup MeshObjects
  * \ingroup ITKQuadEdgeMesh
  */
+
 class QuadEdge
 {
 public:
