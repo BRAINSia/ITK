@@ -19,7 +19,7 @@
 #define itkArrowSpatialObject_h
 
 #include "itkSpatialObject.h"
-#include "ITKSpatialObjectsExport.h"
+#include "itkSpatialObjectsExport.h"
 
 namespace itk
 {
