@@ -22,6 +22,7 @@
 #include "itkIndent.h"
 #include <vector>
 #include "itkArray.h"
+#include "itkPolynomialsExport.h"
 
 namespace itk
 {
@@ -71,7 +72,7 @@ namespace itk
  * \ingroup ITKPolynomials
  */
 
-class MultivariateLegendrePolynomial
+class ITKPolynomials_EXPORT MultivariateLegendrePolynomial
 {
 public:
   typedef MultivariateLegendrePolynomial Self;

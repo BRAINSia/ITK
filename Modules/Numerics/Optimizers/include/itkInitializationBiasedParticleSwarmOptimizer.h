@@ -20,6 +20,7 @@
 #define itkInitializationBiasedParticleSwarmOptimizer_h
 
 #include "itkParticleSwarmOptimizerBase.h"
+#include "itkOptimizersExport.h"
 
 namespace itk
 {
@@ -68,7 +69,7 @@ namespace itk
  * \ingroup Numerics Optimizers
  * \ingroup ITKOptimizers
  */
-class InitializationBiasedParticleSwarmOptimizer :
+class ITKOptimizers_EXPORT InitializationBiasedParticleSwarmOptimizer :
   public ParticleSwarmOptimizerBase
 {
 public:
