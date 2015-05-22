@@ -301,7 +301,7 @@ private:
   IndexValueType  m_PrevZ;
 }; // end of class
 
- std::ostream & operator<<(std::ostream & os,
+ ITKPolynomials_EXPORT std::ostream & operator<<(std::ostream & os,
                           MultivariateLegendrePolynomial & poly);
 } // end of namespace itk
 #endif
