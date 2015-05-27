@@ -19,6 +19,7 @@
 #define itkQuadEdge_h
 
 #include "itkQuadEdgeMeshBaseIterator.h"
+#include "itkQuadEdgeMeshExport.h"
 
 #include "itkMacro.h"
 
@@ -220,7 +221,7 @@ namespace itk
  * \ingroup ITKQuadEdgeMesh
  */
 
-class QuadEdge
+class ITKQuadEdgeMesh_EXPORT QuadEdge
 {
 public:
   /** Hierarchy typedefs & values. */
