@@ -20,6 +20,7 @@
 
 #include "itkObject.h"
 #include "itkObjectFactory.h"
+#include "itkKLMRegionGrowingExport.h"
 
 namespace itk
 {
@@ -42,7 +43,7 @@ namespace itk
  * \ingroup RegionGrowingSegmentation
  * \ingroup ITKKLMRegionGrowing
  */
-class SegmentationBorder:public Object
+class ITKKLMRegionGrowing_EXPORT SegmentationBorder:public Object
 {
 public:
   /** Standard class typedefs. */
