@@ -213,6 +213,26 @@ macro(itk_module_impl)
   itk_module_doxygen( ${itk-module} )   # module name
 endmacro()
 
+################
+################
+# NEW FUNCTION #
+################
+################
+function(link_module_dependencies name)
+  # Check that name is correct
+  if(NOT “${name}” STREQUAL “${itk-module}”)
+    message(FATAL_ERROR “link_module_dependencies must be invoked with module name”)
+  endif()
+
+  # link to dependencies
+  foreach(dep IN LISTS ITK_MODULE_${itk-module}_DEPENDS)
+    target_link_libraries(${itk-module} ${${dep}_LIBRARIES})
+  endforeach()
+endfunction()
+################
+# END FUNCTION #
+################
+
 macro(itk_module_test)
   include(../itk-module.cmake) # Load module meta-data
   set(${itk-module-test}_LIBRARIES "")
