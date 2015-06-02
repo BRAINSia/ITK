@@ -9,6 +9,7 @@ if (ITK_USE_GPU)
   write_gpu_kernels("${ITKGPUImageFilterBase_Kernels}" ITKGPUImageFilterBase_SRC)
 
   add_library(ITKGPUImageFilterBase ${ITKGPUImageFilterBase_SRC})
-  target_link_libraries(ITKGPUImageFilterBase ${ITKGPUCommon_LIBRARIES} ${ITKCommon_LIBRARIES} ${OPENCL_LIBRARIES} )
+  #target_link_libraries(ITKGPUImageFilterBase ${ITKGPUCommon_LIBRARIES} ${ITKCommon_LIBRARIES} ${OPENCL_LIBRARIES} )
+  link_module_dependencies()
   itk_module_target(ITKGPUImageFilterBase)
 endif()

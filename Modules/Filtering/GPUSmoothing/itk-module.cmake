@@ -7,8 +7,11 @@ itk_module(ITKGPUSmoothing
   DEPENDS
     ITKCommon
     ITKGPUCommon
-    ITKSmoothing
     ITKGPUImageFilterBase
+  USE_DEPENDS
+    ITKSmoothing
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
   DESCRIPTION

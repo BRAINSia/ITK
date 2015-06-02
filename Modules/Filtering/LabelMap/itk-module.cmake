@@ -8,9 +8,10 @@ the objects based on these values.")
 
 itk_module(ITKLabelMap
   DEPENDS
+    ITKStatistics
+  USE_DEPENDS
     ITKImageLabel
     ITKMathematicalMorphology
-    ITKStatistics
   TEST_DEPENDS
     ITKTestKernel
     ITKBinaryMathematicalMorphology

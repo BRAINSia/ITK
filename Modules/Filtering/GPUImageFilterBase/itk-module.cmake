@@ -8,7 +8,10 @@ itk_module(ITKGPUImageFilterBase
   DEPENDS
     ITKCommon
     ITKGPUCommon
+  USE_DEPENDS
     ITKImageFilterBase
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
   DESCRIPTION

@@ -5,7 +5,10 @@ itk_module(ITKGPUThresholding
   DEPENDS
     ITKCommon
     ITKGPUCommon
+  USE_DEPENDS
     ITKThresholding
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKGPUSmoothing
