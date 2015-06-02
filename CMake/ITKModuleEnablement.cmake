@@ -23,7 +23,7 @@ foreach(f ${meta})
 
   # Reject bad dependencies.
   string(REGEX MATCHALL ";(ITKDeprecated|ITKReview|ITKIntegratedTest);"
-    _bad_deps ";${ITK_MODULE_${itk-module}_DEPENDS};${ITK_MODULE_${itk-module-test}_DEPENDS};")
+    _bad_deps ";${ITK_MODULE_${itk-module}_DEPENDS};${ITK_MODULE_${itk-module}_COMPILE_DEPENDS};${ITK_MODULE_${itk-module-test}_DEPENDS};")
   foreach(dep ${_bad_deps})
     if(NOT "${itk-module}" MATCHES "^(${dep}|ITKIntegratedTest)$")
       message(FATAL_ERROR
@@ -56,6 +56,9 @@ macro(itk_module_check itk-module _needed_by stack)
     # Traverse dependencies of this module.  Mark the start and finish.
     set(check_started_${itk-module} 1)
     foreach(dep IN LISTS ITK_MODULE_${itk-module}_DEPENDS)
+      itk_module_check(${dep} ${itk-module} "${itk-module};${stack}")
+    endforeach()
+    foreach(dep IN LISTS ITK_MODULE_${itk-module}_COMPILE_DEPENDS)
       itk_module_check(${dep} ${itk-module} "${itk-module};${stack}")
     endforeach()
     set(check_finished_${itk-module} 1)
@@ -116,6 +119,9 @@ macro(itk_module_enable itk-module _needed_by)
   if(NOT ${itk-module}_ENABLED)
     set(${itk-module}_ENABLED 1)
     foreach(dep IN LISTS ITK_MODULE_${itk-module}_DEPENDS)
+      itk_module_enable(${dep} ${itk-module})
+    endforeach()
+    foreach(dep IN LISTS ITK_MODULE_${itk-module}_COMPILE_DEPENDS)
       itk_module_enable(${dep} ${itk-module})
     endforeach()
     if(${itk-module}_TESTED_BY AND (ITK_BUILD_DEFAULT_MODULES OR ITK_BUILD_ALL_MODULES_FOR_TESTS OR Module_${itk-module}))

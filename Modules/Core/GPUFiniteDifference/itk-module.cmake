@@ -6,6 +6,9 @@ itk_module(ITKGPUFiniteDifference
   DEPENDS
     ITKCommon
     ITKGPUCommon
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
+  USE_DEPENDS
     ITKFiniteDifference
   TEST_DEPENDS
     ITKTestKernel

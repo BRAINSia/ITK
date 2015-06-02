@@ -4,7 +4,9 @@ any of these classes. However, they are essential for the quality control
 system supporting ITK.")
 
 itk_module(ITKTestKernel
-  DEPENDS
+  LINK_DEPENDS
+    ${ITKTestKernel_LIBRARIES}
+  USE_DEPENDS
     ITKIOBioRad
     ITKIOBMP
     ITKIOGDCM

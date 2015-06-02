@@ -9,7 +9,8 @@ if (ITK_USE_GPU)
   write_gpu_kernels("${ITKGPUFiniteDifference_Kernels}" ITKGPUFiniteDifference_SRC)
 
   add_library(ITKGPUFiniteDifference ${ITKGPUFiniteDifference_SRC})
-  target_link_libraries(ITKGPUFiniteDifference
-  ${ITKGPUCommon_LIBRARIES} ${ITKCommon_LIBRARIES} ${OPENCL_LIBRARIES} )
+  #target_link_libraries(ITKGPUFiniteDifference
+  #${ITKGPUCommon_LIBRARIES} ${ITKCommon_LIBRARIES} ${OPENCL_LIBRARIES} )
+  link_module_dependencies()
   itk_module_target(ITKGPUFiniteDifference)
 endif()

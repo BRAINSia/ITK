@@ -7,6 +7,8 @@ from the GPU, and managing the GPU contexts.")
 itk_module(ITKGPUCommon
   DEPENDS
     ITKCommon
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
   DESCRIPTION

@@ -9,9 +9,13 @@ depend on this one.")
 itk_module(ITKCommon
   ENABLE_SHARED
   DEPENDS
-    ITKVNLInstantiation
-    ITKKWSys
     ITKDoubleConversion
+  INSTANTIATION_DEPENDS
+    ITKVNLInstantiation
+  USE_DEPENDS
+    ITKKWSys
+  LINK_DEPENDS
+    itksys
   TEST_DEPENDS
     ITKTestKernel
     ITKMesh
