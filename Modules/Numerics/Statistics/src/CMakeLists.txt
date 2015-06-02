@@ -13,5 +13,6 @@ itkMinimumDecisionRule.cxx
 )
 
 add_library(ITKStatistics ${ITKStatistics_SRC})
-target_link_libraries(ITKStatistics  ${ITKCommon_LIBRARIES} ${ITKNetlib_LIBRARIES})
+#target_link_libraries(ITKStatistics  ${ITKCommon_LIBRARIES} ${ITKNetlib_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKStatistics)

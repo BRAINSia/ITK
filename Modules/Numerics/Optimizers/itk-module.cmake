@@ -6,6 +6,8 @@ implementations of specific algorithms.")
 itk_module(ITKOptimizers
   DEPENDS
     ITKStatistics
+  LINK_DEPENDS
+    ${ITKTransform_LIBRARIES}
   TEST_DEPENDS
     ITKTransform
     ITKTestKernel

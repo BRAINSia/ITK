@@ -49,5 +49,6 @@ dsrc2c.c
 )
 
 add_library(ITKFEM ${ITKFEM_SRC})
-target_link_libraries(ITKFEM  ${ITKMetaIO_LIBRARIES} ${ITKImageFunction_LIBRARIES} ${ITKRegistrationCommon_LIBRARIES})
+#target_link_libraries(ITKFEM  ${ITKMetaIO_LIBRARIES} ${ITKImageFunction_LIBRARIES} ${ITKRegistrationCommon_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKFEM)

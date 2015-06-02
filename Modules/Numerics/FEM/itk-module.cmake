@@ -6,8 +6,11 @@ itk_module(ITKFEM
   DEPENDS
     ITKImageFunction
     ITKRegistrationCommon
+  USE_DEPENDS
     ITKSpatialObjects
     ITKIOSpatialObjects
+  LINK_DEPENDS
+    ${ITKMetaIO_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKIOSpatialObjects

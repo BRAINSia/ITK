@@ -3,11 +3,14 @@ optimizers using a new hierarchy developed for the needs of registration with hi
 
 itk_module(ITKOptimizersv4
   DEPENDS
-    ITKCommon
     ITKOptimizers
+  USE_DEPENDS
+    ITKCommon
     ITKTransform
     ITKImageGrid
     ITKDisplacementField
+  LINK_DEPENDS
+    ${ITKMetricsv4_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKMetricsv4
