@@ -19,6 +19,7 @@ set(ITKIOMesh_SRC
 )
 
 add_library(ITKIOMesh ${ITK_LIBRARY_BUILD_TYPE} ${ITKIOMesh_SRC})
-target_link_libraries(ITKIOMesh ${ITKCommon_LIBRARIES} ${ITKGIFTI_LIBRARIES} ${ITKIOImageBase_LIBRARIES})
+#target_link_libraries(ITKIOMesh ${ITKCommon_LIBRARIES} ${ITKGIFTI_LIBRARIES} ${ITKIOImageBase_LIBRARIES})
+link_module_dependencies()
 
 itk_module_target(ITKIOMesh)

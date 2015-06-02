@@ -4,5 +4,6 @@ itkIPLFileNameList.cxx
 )
 
 add_library(ITKIOIPL ${ITK_LIBRARY_BUILD_TYPE} ${ITKIOIPL_SRC})
-target_link_libraries(ITKIOIPL  ${ITKIOImageBase_LIBRARIES})
+#target_link_libraries(ITKIOIPL  ${ITKIOImageBase_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKIOIPL)

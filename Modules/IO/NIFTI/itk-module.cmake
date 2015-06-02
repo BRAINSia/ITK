@@ -6,6 +6,8 @@ itk_module(ITKIONIFTI
   DEPENDS
     ITKNIFTI
     ITKIOImageBase
+  LINK_DEPENDS
+    ${ITKTransform_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKTransform

@@ -6,6 +6,8 @@ itk_module(ITKIOGDCM
   DEPENDS
     ITKGDCM
     ITKIOImageBase
+  USE_DEPENDS
+    ${ITKImageIntensity_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKImageIntensity

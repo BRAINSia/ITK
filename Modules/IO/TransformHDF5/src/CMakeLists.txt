@@ -4,5 +4,6 @@ itkHDF5TransformIOFactory.cxx
 )
 
 add_library(ITKIOTransformHDF5 ${ITKIOTransformHDF5_SRC})
-target_link_libraries(ITKIOTransformHDF5 ${ITKIOTransformBase_LIBRARIES} ${ITKHDF5_LIBRARIES})
+#target_link_libraries(ITKIOTransformHDF5 ${ITKIOTransformBase_LIBRARIES} ${ITKHDF5_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKIOTransformHDF5)
