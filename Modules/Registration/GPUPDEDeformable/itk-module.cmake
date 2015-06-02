@@ -7,9 +7,12 @@ itk_module(ITKGPUPDEDeformableRegistration
   DEPENDS
     ITKCommon
     ITKGPUCommon
-    ITKPDEDeformableRegistration
     ITKGPUFiniteDifference
+  USE_DEPENDS
+    ITKPDEDeformableRegistration
     ITKGPURegistrationCommon
+  LINK_DEPENDS
+    ${OPENCL_LIBRARIES}
   TEST_DEPENDS
     ITKTestKernel
     ITKImageGrid
