@@ -4,10 +4,14 @@ interface between ITK and VTK.")
 itk_module(ITKVtkGlue
   DEPENDS
     ITKCommon
+    ITKVTK
+  USE_DEPENDS
     ITKImageIntensity
     ITKImageAdaptors
     ITKImageGrid
-    ITKVTK
+  LINK_DEPENDS
+    ${ITKVtkGlue_VTK_LIBRARIES}
+    ${ITKVtkGlue_VTK_LIBRARIES_EXPLICIT}
   TEST_DEPENDS
     ITKTestKernel
     ITKSmoothing
