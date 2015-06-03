@@ -129,12 +129,7 @@ endif()
 ### generating libraries
 add_library( ITKCommon ${ITK_LIBRARY_BUILD_TYPE} ${ITKCommon_SRCS})
 
-#target_link_libraries(ITKCommon
-#  itksys
-#  ITKVNLInstantiation
-#  ${ITKDoubleConversion_LIBRARIES})
 link_module_dependencies()
-#target_link_libraries(ITKCommon ${ITKDoubleConversion_LIBRARIES})
 
 if(UNIX)
   target_link_libraries(ITKCommon ${CMAKE_THREAD_LIBS} -lm)

@@ -8,6 +8,5 @@ itkGE4ImageIOFactory.cxx
 )
 
 add_library(ITKIOGE ${ITK_LIBRARY_BUILD_TYPE} ${ITKIOGE_SRC})
-#target_link_libraries(ITKIOGE  ${ITKIOIPL_LIBRARIES})
 link_module_dependencies()
 itk_module_target(ITKIOGE)

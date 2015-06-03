@@ -6,5 +6,5 @@ itkVideoIOFactory.cxx
 )
 
 add_library(ITKVideoIO ${ITKVideoIO_SRC})
-target_link_libraries(ITKVideoIO ${ITKVideoCore_LIBRARIES} ${ITKIOImageBase_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKVideoIO)

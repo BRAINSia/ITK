@@ -33,7 +33,7 @@ macro(itk_module _name)
   set(ITK_MODULE_${itk-module}_EXCLUDE_FROM_DEFAULT 0)
   set(ITK_MODULE_${itk-module}_ENABLE_SHARED 0)
   foreach(arg ${ARGN})
-if("${arg}" MATCHES "^((|INSTANTIATION_|LINK_|USE_|)DEPENDS|TEST_DEPENDS|DESCRIPTION|DEFAULT)$")
+if("${arg}" MATCHES "^((|EXPLICIT_|LINK_|USE_|)DEPENDS|TEST_DEPENDS|DESCRIPTION|DEFAULT)$")
       set(_doing "${arg}")
     elseif("${arg}" MATCHES "^EXCLUDE_FROM_DEFAULT$")
       set(_doing "")
@@ -52,7 +52,7 @@ if("${arg}" MATCHES "^((|INSTANTIATION_|LINK_|USE_|)DEPENDS|TEST_DEPENDS|DESCRIP
       list(APPEND ITK_MODULE_${itk-module}_DEPENDS "${arg}")
       list(APPEND ITK_MODULE_${itk-module}_LINK_DEPENDS "${arg}")
       #message(STATUS "HERE: ${arg}_LIBRARIES")
-    elseif("${_doing}" MATCHES "^INSTANTIATION_DEPENDS$")
+    elseif("${_doing}" MATCHES "^EXPLICIT_DEPENDS$")
       list(APPEND ITK_MODULE_${itk-module}_DEPENDS "${arg}")
       list(APPEND ITK_MODULE_${itk-module}_LINK_DEPENDS_EXPLICIT "${arg}")
     elseif("${_doing}" MATCHES "^LINK_DEPENDS$")
@@ -226,25 +226,15 @@ macro(itk_module_impl)
   itk_module_doxygen( ${itk-module} )   # module name
 endmacro()
 
-################
-################
-# NEW FUNCTION #
-################
-################
-function(link_module_dependencies)
+macro(link_module_dependencies)
   # link to dependencies
   foreach(dep IN LISTS ITK_MODULE_${itk-module}_LINK_DEPENDS_EXPLICIT)
-    message(STATUS "${itk-module} DEPENDENCY: ${dep}")
     target_link_libraries(${itk-module} ${dep})
   endforeach()
   foreach(dep IN LISTS ITK_MODULE_${itk-module}_LINK_DEPENDS)
-    message(STATUS "${itk-module} DEPENDENCY n: ${dep}_LIBRARIES")
     target_link_libraries(${itk-module} ${${dep}_LIBRARIES})
   endforeach()
-endfunction()
-################
-# END FUNCTION #
-################
+endmacro()
 
 macro(itk_module_test)
   include(../itk-module.cmake) # Load module meta-data

@@ -5,5 +5,5 @@ itkTemporalProcessObject.cxx
 )
 
 add_library(ITKVideoCore ${ITKVideoCore_SRC})
-target_link_libraries(ITKVideoCore ${ITKCommon_LIBRARIES})
+link_module_dependencies()
 itk_module_target(ITKVideoCore)

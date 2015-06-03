@@ -12,6 +12,5 @@ itkStreamingImageIOBase.cxx
 )
 
 add_library(ITKIOImageBase ${ITK_LIBRARY_BUILD_TYPE} ${ITKIOImageBase_SRC})
-#target_link_libraries(ITKIOImageBase  ${ITKCommon_LIBRARIES})
 link_module_dependencies()
 itk_module_target(ITKIOImageBase)

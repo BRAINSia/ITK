@@ -4,6 +4,5 @@ itkPNGImageIO.cxx
 )
 
 add_library(ITKIOPNG ${ITK_LIBRARY_BUILD_TYPE} ${ITKIOPNG_SRC})
-#target_link_libraries(ITKIOPNG  ${ITKPNG_LIBRARIES} ${ITKIOImageBase_LIBRARIES})
 link_module_dependencies()
 itk_module_target(ITKIOPNG)

@@ -10,7 +10,7 @@ itk_module(ITKCommon
   ENABLE_SHARED
   DEPENDS
     ITKDoubleConversion
-  INSTANTIATION_DEPENDS
+  EXPLICIT_DEPENDS
     ITKVNLInstantiation
   USE_DEPENDS
     ITKKWSys

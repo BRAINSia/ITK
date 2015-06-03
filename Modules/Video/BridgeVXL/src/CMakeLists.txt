@@ -4,9 +4,5 @@ itkVXLVideoIOFactory.cxx
 )
 
 add_library(ITKVideoBridgeVXL ${ITKVideoBridgeVXL_SRC})
-target_link_libraries(ITKVideoBridgeVXL
-  ${ITKVideoIO_LIBRARIES}
-  vidl
-  vul
-  )
+link_module_dependencies()
 itk_module_target(ITKVideoBridgeVXL)

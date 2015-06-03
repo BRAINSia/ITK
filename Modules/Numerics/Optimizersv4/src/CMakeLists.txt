@@ -7,9 +7,5 @@ set(ITKOptimizersv4_SRC
   )
 
 add_library(ITKOptimizersv4 ${ITKOptimizersv4_SRC})
-#target_link_libraries(ITKOptimizersv4
-#  ${ITKMetricsv4_LIBRARIES}
-#  ${ITKOptimizers_LIBRARIES}
-#  )
 link_module_dependencies()
 itk_module_target(ITKOptimizersv4)

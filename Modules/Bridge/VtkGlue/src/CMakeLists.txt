@@ -9,11 +9,5 @@ endif()
 
 ### generating libraries
 add_library( ITKVtkGlue ${ITKVtkGlue_SRCS})
-#target_link_libraries(ITKVtkGlue
-#    ${ITKCommon_LIBRARIES}
-#    ${ITKVTK_LIBRARIES}
-#    ${ITKVtkGlue_VTK_LIBRARIES}
-#    ${ITKVtkGlue_VTK_LIBRARIES_EXPLICIT}
-#    )
 link_module_dependencies()
 itk_module_target(ITKVtkGlue)

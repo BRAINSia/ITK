@@ -6,6 +6,5 @@ itkKLMSegmentationBorder.cxx
 )
 
 add_library(ITKKLMRegionGrowing ${ITKKLMRegionGrowing_SRC})
-#target_link_libraries(ITKKLMRegionGrowing  ${ITKCommon_LIBRARIES})
 link_module_dependencies()
 itk_module_target(ITKKLMRegionGrowing)
