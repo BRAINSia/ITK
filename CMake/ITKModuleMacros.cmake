@@ -68,7 +68,7 @@ if("${arg}" MATCHES "^((|EXPLICIT_|LINK_|USE_|)DEPENDS|TEST_DEPENDS|DESCRIPTION|
       message(FATAL_ERROR "Invalid argument [DEFAULT]")
     else()
       set(_doing "")
-      message(AUTHOR_WARNING "Unknown argument [${arg}_TWO]")
+      message(AUTHOR_WARNING "Unknown argument [${arg}]")
     endif()
   endforeach()
   list(SORT ITK_MODULE_${itk-module}_DEPENDS) # Deterministic order.
