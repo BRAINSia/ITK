@@ -51,7 +51,6 @@ if("${arg}" MATCHES "^((|EXPLICIT_|LINK_|USE_|)DEPENDS|TEST_DEPENDS|DESCRIPTION|
     elseif("${_doing}" MATCHES "^DEPENDS$")
       list(APPEND ITK_MODULE_${itk-module}_DEPENDS "${arg}")
       list(APPEND ITK_MODULE_${itk-module}_LINK_DEPENDS "${arg}")
-      #message(STATUS "HERE: ${arg}_LIBRARIES")
     elseif("${_doing}" MATCHES "^EXPLICIT_DEPENDS$")
       list(APPEND ITK_MODULE_${itk-module}_DEPENDS "${arg}")
       list(APPEND ITK_MODULE_${itk-module}_LINK_DEPENDS_EXPLICIT "${arg}")
