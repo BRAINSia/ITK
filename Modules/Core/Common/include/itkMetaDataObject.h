@@ -244,6 +244,10 @@ inline bool ExposeMetaData(const MetaDataDictionary & Dictionary, const std::str
 #include "itkMetaDataObject.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaDataObjectExplicit.h"
+#endif
+
 #endif //itkMetaDataObject_h
 
 /** Explicit instantiations */
