@@ -287,4 +287,8 @@ std::ostream & operator<<(std::ostream & os, const Matrix< T, NRows, NColumns > 
 #include "itkMatrix.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMatrixExplicit.h"
+#endif
+
 #endif
