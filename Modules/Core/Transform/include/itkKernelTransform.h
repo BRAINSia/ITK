@@ -59,7 +59,7 @@ namespace itk
  */
 template<typename TParametersValueType,
           unsigned int NDimensions>
-class KernelTransform :
+class ITKTransform_EXPORT KernelTransform :
   public Transform<TParametersValueType, NDimensions, NDimensions>
 {
 public:
@@ -364,6 +364,10 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkKernelTransform.hxx"
+#endif
+
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkKernelTransformExplicit.h"
 #endif
 
 #endif // itkKernelTransform_h
