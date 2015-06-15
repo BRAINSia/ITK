@@ -30,6 +30,8 @@
 #include "itkObjectFactory.h"
 #include "itkIntTypes.h"
 
+#include "ITKTransformExport.h"
+
 namespace itk
 {
 /** \class itkTransformBaseTemplate
@@ -42,7 +44,7 @@ namespace itk
  * \ingroup ITKTransform
  */
 template<typename TParametersValueType>
-class TransformBaseTemplate:public Object
+class ITKTransform_EXPORT TransformBaseTemplate:public Object
 {
 public:
   /** Standard class typedefs. */
