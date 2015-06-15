@@ -15,6 +15,11 @@ itk_module(ITKTransform
     ITKImageFilterBase
   TEST_DEPENDS
     ITKTestKernel
+    ITKStatistics
+    ITKImageFilterBase
+    ITKImageFunction
+    ITKImageGrid
+    ITKSpatialObjects
     ITKDisplacementField
   DESCRIPTION
     "${DOCUMENTATION}"
