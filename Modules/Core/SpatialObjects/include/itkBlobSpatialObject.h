@@ -134,4 +134,8 @@ protected:
 #include "itkBlobSpatialObject.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkBlobSpatialObjectExplicit.h"
+#endif
+
 #endif // itkBlobSpatialObject_h
