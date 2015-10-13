@@ -20,6 +20,12 @@
 
 #include "itkDisplacementFieldTransform.h"
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+  #include "ITKDisplacementFieldExport.h"
+#else
+  #define ITKDisplacementField_EXPORT
+#endif
+
 namespace itk
 {
 
@@ -33,7 +39,7 @@ namespace itk
  * \ingroup ITKDisplacementField
  */
 template<typename TParametersValueType, unsigned int NDimensions>
-class VelocityFieldTransform :
+class ITKDisplacementField_EXPORT VelocityFieldTransform :
   public DisplacementFieldTransform<TParametersValueType, NDimensions>
 {
 public:

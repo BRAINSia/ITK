@@ -7,10 +7,11 @@ module include: smoothing, decimation, curvature computation (mean, gaussian,
 min, max, principal), and normal computation, among others.")
 
 itk_module(ITKQuadEdgeMeshFiltering
-  ENABLE_SHARED
+  ENABLE_SHARED_IF_EXPLICIT_INSTANTIATION
   DEPENDS
     ITKMesh
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKQuadEdgeMesh
   TEST_DEPENDS
     ITKTestKernel

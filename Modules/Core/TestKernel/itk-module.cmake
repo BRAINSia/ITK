@@ -4,10 +4,8 @@ any of these classes. However, they are essential for the quality control
 system supporting ITK.")
 
 itk_module(ITKTestKernel
-  ENABLE_SHARED
+  ENABLE_SHARED_IF_EXPLICIT_INSTANTIATION
   DEPENDS
-    ITKCommon
-  COMPILE_DEPENDS
     ITKIOBioRad
     ITKIOBMP
     ITKIOGDCM
@@ -21,10 +19,9 @@ itk_module(ITKTestKernel
     ITKIOVTK
   PRIVATE_DEPENDS
     ITKCommon
-  COMPILE_DEPENDS
-    ITKKWSys
-    ITKDoubleConversion
   TEST_DEPENDS
+    ITKCommon
+    ITKDoubleConversion
     ITKImageStatistics
   DESCRIPTION
     "${DOCUMENTATION}"

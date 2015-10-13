@@ -95,7 +95,7 @@ private:
   SpatialObjectFactoryBase(const Self &) ITK_DELETE_FUNCTION;
   void operator=(const Self &) ITK_DELETE_FUNCTION;
 
-  static ITKSpatialObjectExport SpatialObjectFactoryBase *m_Factory;
+  static ITKSpatialObjects_EXPORT SpatialObjectFactoryBase *m_Factory;
 };
 } // end namespace itk
 #endif

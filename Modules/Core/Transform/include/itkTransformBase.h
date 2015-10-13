@@ -18,8 +18,6 @@
 #ifndef itkTransformBase_h
 #define itkTransformBase_h
 
-#include "ITKTransformExport.h"
-
 #include "itkObject.h"
 #include "itkPoint.h"
 #include "itkCovariantVector.h"
@@ -30,7 +28,11 @@
 #include "itkObjectFactory.h"
 #include "itkIntTypes.h"
 
-#include "ITKTransformExport.h"
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+  #include "ITKTransformExport.h"
+#else
+  #define ITKTransform_EXPORT
+#endif
 
 namespace itk
 {
