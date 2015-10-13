@@ -20,6 +20,7 @@
 
 #include "itkObject.h"
 #include "itkSpatialObject.h"
+#include "ITKSpatialObjectsExport.h"
 
 namespace itk
 {
@@ -29,7 +30,7 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 template< typename TInputSpatialObject >
-class SpatialObjectDuplicator:public Object
+class ITKSpatialObjects_EXPORT SpatialObjectDuplicator:public Object
 {
 public:
   /** Standard class typedefs. */

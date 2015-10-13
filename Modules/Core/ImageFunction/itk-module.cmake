@@ -7,8 +7,9 @@ applications. Their main role is to assist in the implementation of ITK
 filters.")
 
 itk_module(ITKImageFunction
-  ENABLE_SHARED
+  ENABLE_SHARED_IF_EXPLICIT_INSTANTIATION
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKImageAdaptors
     ITKTransform
     ITKStatistics

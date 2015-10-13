@@ -12,6 +12,12 @@ foreach(p
   endif()
 endforeach()
 
+### HACK HACK HACK
+##
+# set(ITK_TEMPLATE_EXPLICIT_INSTANTIATION ON CACHE STRING "HACK DO NOT SUBMIT THIS: Turn on explicit instantiation" FORCE)
+##
+### HACK HACK HACK
+
 project(ITK NONE)
 # Set a default build type if none was specified
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)

@@ -17,6 +17,7 @@
  *=========================================================================*/
 #ifndef itkImageDuplicatorExplicit_h
 #define itkImageDuplicatorExplicit_h
+#include "itkVectorImage.h"
 extern template class ITKCommon_EXPORT itk::ImageDuplicator<itk::Image<unsigned short, 2u> >;
 extern template class ITKCommon_EXPORT itk::ImageDuplicator<itk::Image<unsigned int, 2u> >;
 extern template class ITKCommon_EXPORT itk::ImageDuplicator<itk::Image<signed char, 2u> >;

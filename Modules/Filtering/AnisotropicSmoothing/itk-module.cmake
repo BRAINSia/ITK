@@ -6,8 +6,9 @@ algorithms. You may find useful as well the filters in the ITKCurvatureFlow
 module and the ITKSmoothingModule.")
 
 itk_module(ITKAnisotropicSmoothing
-  ENABLE_SHARED
+  ENABLE_SHARED_IF_EXPLICIT_INSTANTIATION
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKImageGrid
     ITKCurvatureFlow
   TEST_DEPENDS

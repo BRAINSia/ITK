@@ -21,6 +21,12 @@
 #include "itkImageFunction.h"
 #include "itkFixedArray.h"
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+  #include "ITKImageFunctionExport.h"
+#else
+  #define ITKImageFunction_EXPORT
+#endif
+
 namespace itk
 {
 
@@ -43,7 +49,7 @@ namespace itk
  * \ingroup ITKImageFunction
  */
 template< typename TInputImage, typename TCoordRep = double >
-class VectorInterpolateImageFunction:
+class ITKImageFunction_EXPORT VectorInterpolateImageFunction:
   public ImageFunction<
     TInputImage,
     typename NumericTraits< typename TInputImage::PixelType >::RealType,

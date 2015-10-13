@@ -10,11 +10,11 @@ itk_module(ITKCommon
   ENABLE_SHARED
   DEPENDS
     ITKKWIML
+    ITKVNLInstantiation
   PRIVATE_DEPENDS
     ITKDoubleConversion
   COMPILE_DEPENDS
     ITKKWSys
-    ITKVNLInstantiation
   TEST_DEPENDS
     ITKTestKernel
     ITKMesh

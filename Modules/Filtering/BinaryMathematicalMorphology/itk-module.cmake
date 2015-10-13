@@ -4,8 +4,9 @@ dilation, opening and closing filters, you will find here geodesic operations,
 maxima and minima filters, and reconstruction filters.")
 
 itk_module(ITKBinaryMathematicalMorphology
-  ENABLE_SHARED
+  ENABLE_SHARED_IF_EXPLICIT_INSTANTIATION
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKLabelMap
     ITKMathematicalMorphology
   TEST_DEPENDS

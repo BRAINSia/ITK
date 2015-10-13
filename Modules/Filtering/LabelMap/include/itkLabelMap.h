@@ -21,6 +21,7 @@
 #include "itkImageBase.h"
 #include "itkWeakPointer.h"
 #include <map>
+#include "ITKLabelMapExport.h"
 
 namespace itk
 {
@@ -67,7 +68,7 @@ namespace itk
  * \endwiki
  */
 template< typename TLabelObject >
-class LabelMap:public ImageBase< TLabelObject::ImageDimension >
+class ITKLabelMap_EXPORT LabelMap:public ImageBase< TLabelObject::ImageDimension >
 {
 public:
   /** Standard class typedefs */
@@ -475,6 +476,10 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkLabelMap.hxx"
+#endif
+
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkLabelMapExplicit.h"
 #endif
 
 #endif
