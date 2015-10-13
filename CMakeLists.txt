@@ -12,6 +12,12 @@ foreach(p
   endif()
 endforeach()
 
+### HACK HACK HACK
+##
+# set(ITK_TEMPLATE_EXPLICIT_INSTANTIATION ON CACHE STRING "HACK DO NOT SUBMIT THIS: Turn on explicit instantiation" FORCE)
+##
+### HACK HACK HACK
+
 project(ITK NONE)
 include(${CMAKE_CURRENT_SOURCE_DIR}/CMake/ITKInitializeBuildType.cmake)
 enable_language(C)

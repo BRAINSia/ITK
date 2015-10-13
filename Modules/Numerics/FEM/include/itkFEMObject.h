@@ -19,6 +19,7 @@
 #define itkFEMObject_h
 
 #include "itkDataObject.h"
+#include "ITKFEMExport.h"
 
 #include "itkFEMElementBase.h"
 #include "itkFEMLinearSystemWrapper.h"
@@ -72,7 +73,7 @@ namespace fem
  */
 
 template <unsigned int VDimension = 3>
-class  FEMObject : public DataObject
+class ITKFEM_EXPORT FEMObject : public DataObject
 {
 public:
   /** Standard class typedefs. */

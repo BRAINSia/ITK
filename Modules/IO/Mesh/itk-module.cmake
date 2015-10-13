@@ -7,6 +7,7 @@ itk_module(ITKIOMesh
     ITKDoubleConversion
     ITKGIFTI
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKMesh
   TEST_DEPENDS
     ITKTestKernel

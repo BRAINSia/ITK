@@ -13,6 +13,7 @@ itk_module(ITKSpatialObjects
     ITKMesh
     ITKCommon
   COMPILE_DEPENDS
+  DEPENDS_IF_EXPLICIT_INSTANTIATION
     ITKImageFunction
     ITKMetaIO
   TEST_DEPENDS
