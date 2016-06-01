@@ -22,6 +22,8 @@
 #include "itkGroupSpatialObject.h"
 #include "itkPolygonSpatialObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /**
@@ -47,7 +49,7 @@ namespace itk
  */
 
 template< unsigned int TDimension = 3 >
-class PolygonGroupSpatialObject:
+class ITKSpatialObjects_EXPORT PolygonGroupSpatialObject:
   public GroupSpatialObject< TDimension >
 {
 public:
@@ -109,10 +111,6 @@ protected:
 }
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkPolygonGroupSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkPolygonGroupSpatialObjectExplicit.h"
 #endif
 
 #endif

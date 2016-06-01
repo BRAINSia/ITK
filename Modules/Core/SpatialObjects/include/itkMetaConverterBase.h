@@ -21,6 +21,8 @@
 #include "itkSpatialObject.h"
 #include "metaObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 
@@ -38,7 +40,7 @@ namespace itk
  *  \ingroup ITKSpatialObjects
  */
 template <unsigned VDimension = 3>
-class MetaConverterBase : public Object
+class ITKSpatialObjects_EXPORT MetaConverterBase : public Object
 {
 public:
   /** standard class typedefs */
@@ -86,10 +88,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTATIATION
 #include "itkMetaConverterBase.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaConverterBaseExplicit.h"
 #endif
 
 #endif // itkMetaConverterBase_h

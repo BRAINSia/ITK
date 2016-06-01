@@ -17,7 +17,10 @@
  *=========================================================================*/
 #ifndef itkPolygonSpatialObject_h
 #define itkPolygonSpatialObject_h
+
 #include "itkBlobSpatialObject.h"
+
+#include "ITKSpatialObjectsExport.h"
 
 namespace itk
 {
@@ -27,7 +30,7 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 template< unsigned int TDimension = 3 >
-class PolygonSpatialObject:
+class ITKSpatialObjects_EXPORT PolygonSpatialObject:
   public BlobSpatialObject< TDimension >
 {
 public:
@@ -127,10 +130,6 @@ private:
 }
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkPolygonSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkPolygonSpatialObjectExplicit.h"
 #endif
 
 #endif  // itkPolygonSpatialObject_h

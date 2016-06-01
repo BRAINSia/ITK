@@ -21,6 +21,7 @@
 #include <list>
 
 #include "itkPointBasedSpatialObject.h"
+#include "ITKSpatialObjectsExport.h"
 
 namespace itk
 {
@@ -43,7 +44,7 @@ namespace itk
  */
 
 template< unsigned int TDimension = 3 >
-class BlobSpatialObject:
+class ITKSpatialObjects_EXPORT BlobSpatialObject:
   public PointBasedSpatialObject<  TDimension >
 {
 public:
@@ -132,10 +133,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkBlobSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkBlobSpatialObjectExplicit.h"
 #endif
 
 #endif // itkBlobSpatialObject_h

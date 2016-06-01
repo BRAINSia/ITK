@@ -151,8 +151,4 @@ template<> void ArrowSpatialObject< 3 > ::UpdateTransform();
 #include "itkArrowSpatialObject.hxx"
 #endif
 
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkArrowSpatialObjectExplicit.h"
-#endif
-
 #endif // itkArrowSpatialObject_h

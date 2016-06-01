@@ -18,9 +18,11 @@
 #ifndef itkSceneSpatialObject_h
 #define itkSceneSpatialObject_h
 
+#include <list>
+
 #include "itkSpatialObject.h"
 
-#include <list>
+#include "ITKSpatialObjectsExport.h"
 
 namespace itk
 {
@@ -35,7 +37,7 @@ namespace itk
  */
 
 template< unsigned int TSpaceDimension = 3 >
-class SceneSpatialObject:
+class ITKSpatialObjects_EXPORT SceneSpatialObject:
   public Object
 {
 public:
@@ -131,10 +133,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkSceneSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkSceneSpatialObjectExplicit.h"
 #endif
 
 #endif // __SceneSpatialObject_h

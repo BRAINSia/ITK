@@ -23,6 +23,8 @@
 #include "itkSpatialObject.h"
 #include "itkMetaConverterBase.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class MetaContourConverter
@@ -32,7 +34,7 @@ namespace itk
  *  \ingroup ITKSpatialObjects
  */
 template< unsigned int NDimensions = 3 >
-class MetaContourConverter :
+class ITKSpatialObjects_EXPORT MetaContourConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -80,10 +82,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaContourConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaContourConverterExplicit.h"
 #endif
 
 #endif

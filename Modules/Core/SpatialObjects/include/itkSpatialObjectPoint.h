@@ -22,6 +22,8 @@
 #include "vnl/vnl_vector_fixed.h"
 #include "itkRGBAPixel.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class SpatialObjectPoint
@@ -34,7 +36,7 @@ namespace itk
  */
 
 template< unsigned int TPointDimension = 3 >
-class SpatialObjectPoint
+class ITKSpatialObjects_EXPORT SpatialObjectPoint
 {
 public:
 
@@ -118,10 +120,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkSpatialObjectPoint.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkSpatialObjectPointExplicit.h"
 #endif
 
 #endif // itkSpatialObjectPoint_h

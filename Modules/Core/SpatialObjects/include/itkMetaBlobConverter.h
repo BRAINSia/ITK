@@ -22,6 +22,8 @@
 #include "itkBlobSpatialObject.h"
 #include "itkMetaConverterBase.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class MetaBlobConverter
@@ -31,7 +33,7 @@ namespace itk
  *  \ingroup ITKSpatialObjects
  */
 template< unsigned int NDimensions = 3 >
-class MetaBlobConverter :
+class ITKSpatialObjects_EXPORT MetaBlobConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -80,10 +82,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaBlobConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaBlobConverterExplicit.h"
 #endif
 
 #endif

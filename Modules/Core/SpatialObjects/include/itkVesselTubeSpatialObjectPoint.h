@@ -21,6 +21,8 @@
 #include "itkTubeSpatialObjectPoint.h"
 #include "vnl/vnl_vector_fixed.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class VesselTubeSpatialObjectPoint
@@ -34,7 +36,7 @@ namespace itk
  */
 
 template< unsigned int TPointDimension = 3 >
-class VesselTubeSpatialObjectPoint:
+class ITKSpatialObjects_EXPORT VesselTubeSpatialObjectPoint:
   public TubeSpatialObjectPoint< TPointDimension >
 {
 public:
@@ -127,10 +129,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkVesselTubeSpatialObjectPoint.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkVesselTubeSpatialObjectPointExplicit.h"
 #endif
 
 #endif // itkVesselTubeSpatialObjectPoint_h

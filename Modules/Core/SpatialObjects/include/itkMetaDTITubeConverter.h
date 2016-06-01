@@ -22,6 +22,8 @@
 #include "metaDTITube.h"
 #include "itkDTITubeSpatialObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 
@@ -31,7 +33,7 @@ namespace itk
  *  \ingroup ITKSpatialObjects
  */
 template< unsigned int NDimensions = 3 >
-class MetaDTITubeConverter :
+class ITKSpatialObjects_EXPORT MetaDTITubeConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -79,10 +81,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaDTITubeConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaDTITubeConverterExplicit.h"
 #endif
 
 #endif

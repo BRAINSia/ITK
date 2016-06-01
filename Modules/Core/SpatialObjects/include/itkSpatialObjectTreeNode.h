@@ -21,6 +21,8 @@
 #include "itkTreeNode.h"
 #include "itkSpatialObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 template< unsigned int TDimension >
@@ -31,7 +33,7 @@ class SpatialObject;
  * \ingroup ITKSpatialObjects
  */
 template< unsigned int TDimension >
-class SpatialObjectTreeNode:public TreeNode< SpatialObject< TDimension > * >
+class ITKSpatialObjects_EXPORT SpatialObjectTreeNode:public TreeNode< SpatialObject< TDimension > * >
 {
 public:
 
@@ -93,10 +95,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkSpatialObjectTreeNode.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkSpatialObjectTreeNodeExplicit.h"
 #endif
 
 #endif

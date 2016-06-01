@@ -22,6 +22,8 @@
 #include "itkMeshSpatialObject.h"
 #include "itkMetaConverterBase.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class MetaMeshConverter
@@ -35,7 +37,7 @@ template< unsigned int NDimensions = 3,
           typename TMeshTraits =
             DefaultStaticMeshTraits< PixelType, NDimensions, NDimensions >
           >
-class MetaMeshConverter :
+class ITKSpatialObjects_EXPORT MetaMeshConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -84,10 +86,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaMeshConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaMeshConverterExplicit.h"
 #endif
 
 #endif

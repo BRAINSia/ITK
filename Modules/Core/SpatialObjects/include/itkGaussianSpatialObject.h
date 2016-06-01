@@ -20,6 +20,8 @@
 
 #include "itkEllipseSpatialObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class GaussianSpatialObject
@@ -40,7 +42,7 @@ namespace itk
  */
 
 template< unsigned int TDimension = 3 >
-class GaussianSpatialObject:
+class ITKSpatialObjects_EXPORT GaussianSpatialObject:
   public SpatialObject< TDimension >
 {
 public:
@@ -129,10 +131,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkGaussianSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkGaussianSpatialObjectExplicit.h"
 #endif
 
 #endif // itkGaussianSpatialObject_h

@@ -23,6 +23,8 @@
 #include "itkPointBasedSpatialObject.h"
 #include "itkLineSpatialObjectPoint.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /**
@@ -40,7 +42,7 @@ namespace itk
  */
 
 template< unsigned int TDimension = 3 >
-class LineSpatialObject:
+class ITKSpatialObjects_EXPORT LineSpatialObject:
   public PointBasedSpatialObject<  TDimension >
 {
 public:
@@ -128,10 +130,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkLineSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkLineSpatialObjectExplicit.h"
 #endif
 
 #endif // itkLineSpatialObject_h

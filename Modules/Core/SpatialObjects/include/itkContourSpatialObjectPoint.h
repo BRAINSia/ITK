@@ -21,6 +21,8 @@
 #include "itkSpatialObjectPoint.h"
 #include "itkCovariantVector.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class ContourSpatialObjectPoint
@@ -34,7 +36,7 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 template< unsigned int TPointDimension = 3 >
-class ContourSpatialObjectPoint:
+class ITKSpatialObjects_EXPORT ContourSpatialObjectPoint:
   public SpatialObjectPoint< TPointDimension >
 {
 public:
@@ -88,10 +90,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkContourSpatialObjectPoint.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkContourSpatialObjectPointExplicit.h"
 #endif
 
 #endif // itkContourSpatialObjectPoint_h

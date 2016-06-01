@@ -22,6 +22,8 @@
 #include "itkAffineTransform.h"
 #include "itkFixedArray.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class BoxSpatialObject
@@ -33,7 +35,7 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 template< unsigned int TDimension = 3 >
-class BoxSpatialObject:
+class ITKSpatialObjects_EXPORT  BoxSpatialObject:
   public SpatialObject< TDimension >
 {
 public:
@@ -100,10 +102,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkBoxSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkBoxSpatialObjectExplicit.h"
 #endif
 
 #endif // itkBoxSpatialObject_h

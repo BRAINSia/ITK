@@ -21,6 +21,8 @@
 #include "itkMesh.h"
 #include "itkSpatialObject.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class MeshSpatialObject
@@ -34,7 +36,7 @@ namespace itk
  */
 
 template< typename TMesh = Mesh< int > >
-class MeshSpatialObject:
+class ITKSpatialObjects_EXPORT MeshSpatialObject:
   public SpatialObject< TMesh::PointDimension >
 {
 public:
@@ -126,10 +128,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMeshSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMeshSpatialObjectExplicit.h"
 #endif
 
 #endif //itkMeshSpatialObject_h

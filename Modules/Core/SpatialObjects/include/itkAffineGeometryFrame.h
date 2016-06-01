@@ -23,6 +23,8 @@
 #include "itkScalableAffineTransform.h"
 #include "itkBoundingBox.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class AffineGeometryFrame
@@ -30,7 +32,7 @@ namespace itk
  * \ingroup ITKSpatialObjects
  */
 template< typename TScalar = double, unsigned int NDimensions = 3 >
-class AffineGeometryFrame:public Object
+class ITKSpatialObjects_EXPORT AffineGeometryFrame:public Object
 {
 public:
   typedef AffineGeometryFrame        Self;
@@ -122,10 +124,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkAffineGeometryFrame.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkAffineGeometryFrameExplicit.h"
 #endif
 
 #endif /* itkAffineGeometryFrame_h */

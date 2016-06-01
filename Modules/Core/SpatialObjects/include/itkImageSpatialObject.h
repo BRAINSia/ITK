@@ -22,6 +22,8 @@
 #include "itkSpatialObject.h"
 #include "itkNearestNeighborInterpolateImageFunction.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class ImageSpatialObject
@@ -37,7 +39,7 @@ namespace itk
 template< unsigned int TDimension = 3,
           typename TPixelType = unsigned char
           >
-class ImageSpatialObject:
+class ITKSpatialObjects_EXPORT ImageSpatialObject:
   public SpatialObject< TDimension >
 {
 public:
@@ -163,10 +165,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkImageSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkImageSpatialObjectExplicit.h"
 #endif
 
 #endif //itkImageSpatialObject_h

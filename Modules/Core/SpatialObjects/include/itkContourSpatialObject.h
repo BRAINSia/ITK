@@ -23,6 +23,8 @@
 #include "itkPointBasedSpatialObject.h"
 #include "itkContourSpatialObjectPoint.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /**
@@ -36,7 +38,7 @@ namespace itk
  */
 
 template< unsigned int TDimension = 3 >
-class ContourSpatialObject:
+class ITKSpatialObjects_EXPORT ContourSpatialObject:
   public PointBasedSpatialObject<  TDimension >
 {
 public:
@@ -177,10 +179,6 @@ protected:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkContourSpatialObject.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkContourSpatialObjectExplicit.h"
 #endif
 
 #endif // itkContourSpatialObject_h

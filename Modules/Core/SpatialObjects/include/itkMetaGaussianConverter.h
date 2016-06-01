@@ -22,6 +22,8 @@
 #include "itkGaussianSpatialObject.h"
 #include "metaGaussian.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 /** \class MetaGaussianConverter
@@ -31,7 +33,7 @@ namespace itk
  *  \ingroup ITKSpatialObjects
  */
 template< unsigned int NDimensions = 3 >
-class MetaGaussianConverter :
+class ITKSpatialObjects_EXPORT MetaGaussianConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -79,10 +81,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaGaussianConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaGaussianConverterExplicit.h"
 #endif
 
 #endif

@@ -24,6 +24,8 @@
 #include "itkImageSpatialObject.h"
 #include "itkMetaConverterBase.h"
 
+#include "ITKSpatialObjectsExport.h"
+
 namespace itk
 {
 
@@ -36,7 +38,7 @@ namespace itk
 template< unsigned int NDimensions = 3,
           typename TPixel = unsigned char,
           typename TSpatialObjectType = ImageSpatialObject< NDimensions,TPixel > >
-class MetaImageConverter :
+class ITKSpatialObjects_EXPORT MetaImageConverter :
     public MetaConverterBase< NDimensions >
 {
 public:
@@ -87,10 +89,6 @@ private:
 
 #ifndef ITK_MANUAL_INSTANTIATION
 #include "itkMetaImageConverter.hxx"
-#endif
-
-#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
-#include "itkMetaImageConverterExplicit.h"
 #endif
 
 #endif
