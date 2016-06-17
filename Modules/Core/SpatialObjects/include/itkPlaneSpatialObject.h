@@ -106,4 +106,8 @@ protected:
 #include "itkPlaneSpatialObject.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkPlaneSpatialObjectExplicit.h"
+#endif
+
 #endif // itkPlaneSpatialObject_h

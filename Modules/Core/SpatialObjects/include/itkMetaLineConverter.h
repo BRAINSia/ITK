@@ -84,4 +84,8 @@ private:
 #include "itkMetaLineConverter.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaLineConverterExplicit.h"
+#endif
+
 #endif

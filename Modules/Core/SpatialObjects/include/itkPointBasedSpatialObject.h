@@ -107,4 +107,8 @@ protected:
 #include "itkPointBasedSpatialObject.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkPointBasedSpatialObjectExplicit.h"
+#endif
+
 #endif // itkPointBasedSpatialObject_h

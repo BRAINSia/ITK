@@ -84,4 +84,8 @@ private:
 #include "itkMetaVesselTubeConverter.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaVesselTubeConverterExplicit.h"
+#endif
+
 #endif

@@ -133,4 +133,8 @@ protected:
 #include "itkGaussianSpatialObject.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkGaussianSpatialObjectExplicit.h"
+#endif
+
 #endif // itkGaussianSpatialObject_h

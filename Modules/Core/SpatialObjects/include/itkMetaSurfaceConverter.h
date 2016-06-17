@@ -84,4 +84,8 @@ private:
 #include "itkMetaSurfaceConverter.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaSurfaceConverterExplicit.h"
+#endif
+
 #endif

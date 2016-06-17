@@ -118,4 +118,8 @@ protected:
 #include "itkTubeSpatialObjectPoint.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkTubeSpatialObjectPointExplicit.h"
+#endif
+
 #endif // itkTubeSpatialObjectPoint_h

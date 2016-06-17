@@ -84,4 +84,8 @@ private:
 #include "itkMetaContourConverter.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaContourConverterExplicit.h"
+#endif
+
 #endif

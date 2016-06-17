@@ -1,8 +1,16 @@
+if(ITK_TEMPLATE_EXPLICIT_INSTANTIATION)
+  file(GLOB ITK_SPATIAL_OBJECTS_EXPLICIT_SOURCES "*Explicit.cxx")
+else()
+  set(ITK_SPATIAL_OBJECTS_EXPLICIT_SOURCES "")
+endif()
+
 set(ITKSpatialObjects_SRC
 itkMetaEvent.cxx
 itkCylinderSpatialObject.cxx
 itkSpatialObjectFactoryBase.cxx
 itkArrowSpatialObject.cxx
+
+${ITK_SPATIAL_OBJECTS_EXPLICIT_SOURCES}
 )
 
 add_library(ITKSpatialObjects ${ITK_LIBRARY_BUILD_TYPE} ${ITKSpatialObjects_SRC})

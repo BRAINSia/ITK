@@ -84,4 +84,8 @@ private:
 #include "itkMetaBlobConverter.hxx"
 #endif
 
+#ifdef ITK_TEMPLATE_EXPLICIT_INSTANTIATION
+#include "itkMetaBlobConverterExplicit.h"
+#endif
+
 #endif
