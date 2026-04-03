@@ -595,6 +595,60 @@ ${DO_NOT_WAIT_FOR_THREADS_CALLS}
       COMPONENT
         ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
     )
+
+    # Install wrapping metadata (.i, .idx, .mdx files) needed by external modules.
+    set(_wrap_metadata_dest "${WRAP_ITK_INSTALL_PREFIX}/Typedefs")
+    if(i_files)
+      install(
+        FILES
+          ${i_files}
+        DESTINATION "${_wrap_metadata_dest}"
+        COMPONENT
+          ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
+      )
+    endif()
+    if(idx_files)
+      install(
+        FILES
+          ${idx_files}
+        DESTINATION "${_wrap_metadata_dest}"
+        COMPONENT
+          ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
+      )
+    endif()
+    install(
+      FILES
+        "${mdx_file}"
+      DESTINATION "${_wrap_metadata_dest}"
+      COMPONENT
+        ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
+    )
+    if(module_interface_file AND EXISTS "${module_interface_file}")
+      install(
+        FILES
+          "${module_interface_file}"
+        DESTINATION "${_wrap_metadata_dest}"
+        COMPONENT
+          ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
+      )
+    endif()
+    # Install Python SWIG extension interface files (_ext.i)
+    set(
+      _python_ext_i
+      "${WRAPPER_MASTER_INDEX_OUTPUT_DIR}/python/${WRAPPER_LIBRARY_NAME}_ext.i"
+    )
+    if(EXISTS "${_python_ext_i}" OR CMAKE_GENERATOR MATCHES "Ninja|Make")
+      install(
+        FILES
+          "${_python_ext_i}"
+        DESTINATION "${_wrap_metadata_dest}/python"
+        COMPONENT
+          ${_component_module}${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
+        OPTIONAL
+      )
+    endif()
+    unset(_python_ext_i)
+    unset(_wrap_metadata_dest)
     unset(_component_module)
 
     if(NOT EXTERNAL_WRAP_ITK_PROJECT)

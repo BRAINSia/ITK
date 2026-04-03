@@ -248,6 +248,7 @@ if(NOT EXTERNAL_WRAP_ITK_PROJECT)
     DIRECTORY
       ${ITK_STUB_DIR}/
     DESTINATION ${PY_SITE_PACKAGES_PATH}/${ITK_STUB_BASENAME}
+    COMPONENT ${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
   )
 endif()
 
@@ -258,6 +259,12 @@ configure_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/WrapITK.pth.in"
   "${ITK_WRAP_PYTHON_ROOT_BINARY_DIR}/WrapITK.pth"
   @ONLY
+)
+install(
+  FILES
+    "${ITK_WRAP_PYTHON_ROOT_BINARY_DIR}/WrapITK.pth"
+  DESTINATION ${PY_SITE_PACKAGES_PATH}
+  COMPONENT ${WRAP_ITK_INSTALL_COMPONENT_IDENTIFIER}RuntimeLibraries
 )
 
 ###############################################################################
