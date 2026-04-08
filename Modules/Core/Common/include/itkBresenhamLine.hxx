@@ -30,9 +30,6 @@ template <unsigned int VDimension>
 auto
 BresenhamLine<VDimension>::BuildLine(LType Direction, IdentifierType length) -> OffsetArray
 {
-  // copied from the line iterator
-  /** Variables that drive the Bresenham-Algorithm */
-
   Direction.Normalize();
 
   // The dimension with the largest absolute component
@@ -55,61 +52,15 @@ BresenhamLine<VDimension>::BuildLine(LType Direction, IdentifierType length) -> 
     LastIndex[i] = Math::RoundHalfIntegerUp<IndexValueType>(euclideanLineLen * Direction[i]);
   }
 
-  const IndexValueType maxDistance = static_cast<long>(itk::Math::Absolute(LastIndex[maxDistanceDimension]));
-  // Increment for the error for each step. Two times the difference between
-  // start and end
-  IndexType incrementError;
-
-  // Direction of increment. -1 or 1
-  IndexType overflowIncrement;
-  for (unsigned int i = 0; i < VDimension; ++i)
+  const IndexArray indices = this->BuildLine(StartIndex, LastIndex);
+  OffsetArray      offsets;
+  offsets.reserve(indices.size());
+  for (const IndexType & index : indices)
   {
-    auto distance = static_cast<long>(itk::Math::Absolute(LastIndex[i]));
-    incrementError[i] = 2 * distance;
-    overflowIncrement[i] = (LastIndex[i] < 0 ? -1 : 1);
+    offsets.push_back(index - StartIndex);
   }
 
-  // The dimension with the largest difference between start and end
-  const unsigned int mainDirection = maxDistanceDimension;
-  // If enough is accumulated for a dimension, the index has to be
-  // incremented. Will be the number of pixels in the line
-  auto maximalError = MakeFilled<IndexType>(maxDistance);
-  // After an overflow, the accumulated error is reduced again. Will be
-  // two times the number of pixels in the line
-  auto reduceErrorAfterIncrement = MakeFilled<IndexType>(2 * maxDistance);
-  // Accumulated error for the other dimensions
-  auto accumulateError = MakeFilled<IndexType>(0);
-
-  OffsetArray result(length);
-  auto        currentImageIndex = MakeFilled<IndexType>(0);
-  result[0] = currentImageIndex - StartIndex;
-  unsigned int steps = 1;
-  while (steps < length)
-  {
-    // This part is from ++ in LineConstIterator
-    // We need to modify accumulateError, currentImageIndex, isAtEnd
-    for (unsigned int i = 0; i < VDimension; ++i)
-    {
-      if (i == mainDirection)
-      {
-        currentImageIndex[i] += overflowIncrement[i];
-      }
-      else
-      {
-        accumulateError[i] += incrementError[i];
-        if (accumulateError[i] >= maximalError[i])
-        {
-          currentImageIndex[i] += overflowIncrement[i];
-          accumulateError[i] -= reduceErrorAfterIncrement[i];
-        }
-      }
-    }
-
-    result[steps] = currentImageIndex - StartIndex; // produce an offset
-
-    ++steps;
-  }
-  return result;
+  return offsets;
 }
 
 template <unsigned int VDimension>
@@ -122,18 +73,19 @@ BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
   // OpenCV, and VTK.
 
   // Compute displacements and find the dominant axis
-  IndexType      delta;
+  IndexType      absDeltas;
   IndexType      step; // +1 or -1 per dimension
   IndexValueType maxAbsDelta = 0;
   unsigned int   mainAxis = 0;
   for (unsigned int i = 0; i < VDimension; ++i)
   {
-    delta[i] = p1[i] - p0[i];
-    step[i] = (delta[i] >= 0) ? 1 : -1;
-    const auto absDelta = static_cast<IndexValueType>(itk::Math::Absolute(delta[i]));
-    if (absDelta > maxAbsDelta)
+    const IndexValueType delta = p1[i] - p0[i];
+    step[i] = (delta >= 0) ? 1 : -1;
+    absDeltas[i] = static_cast<IndexValueType>(itk::Math::Absolute(delta));
+
+    if (absDeltas[i] > maxAbsDelta)
     {
-      maxAbsDelta = absDelta;
+      maxAbsDelta = absDeltas[i];
       mainAxis = i;
     }
   }
@@ -144,7 +96,7 @@ BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
   IndexArray indices;
   indices.reserve(numPixels);
 
-  // Error accumulators for each secondary axis (2 * |delta[i]| per step,
+  // Error accumulators for each secondary axis (2 * absDelta[i] per step,
   // overflow when accumulated error >= maxAbsDelta)
   auto accumulateError = MakeFilled<IndexType>(0);
   auto currentIndex = p0;
@@ -162,7 +114,7 @@ BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
       }
       else
       {
-        accumulateError[i] += 2 * static_cast<IndexValueType>(itk::Math::Absolute(delta[i]));
+        accumulateError[i] += 2 * absDeltas[i];
         if (accumulateError[i] >= maxAbsDelta)
         {
           currentIndex[i] += step[i];

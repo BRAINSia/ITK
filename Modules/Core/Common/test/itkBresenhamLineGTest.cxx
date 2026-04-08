@@ -203,6 +203,8 @@ TEST(BresenhamLine, ReverseSymmetry)
   const auto forward = line.BuildLine(a, b);
   const auto reverse = line.BuildLine(b, a);
 
+  ASSERT_FALSE(forward.empty());
+  ASSERT_FALSE(reverse.empty());
   EXPECT_EQ(forward.size(), reverse.size());
   EXPECT_EQ(forward.front(), a);
   EXPECT_EQ(forward.back(), b);
