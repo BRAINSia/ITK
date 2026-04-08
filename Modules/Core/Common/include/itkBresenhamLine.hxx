@@ -35,14 +35,16 @@ BresenhamLine<VDimension>::BuildLine(LType Direction, IdentifierType length) -> 
 
   Direction.Normalize();
 
-  // The dimension with the largest difference between start and end
-  const unsigned int maxDistanceDimension =
-    std::distance(Direction.Begin(), std::max_element(Direction.Begin(), Direction.End()));
+  // The dimension with the largest absolute component
+  const unsigned int maxDistanceDimension = std::distance(
+    Direction.Begin(), std::max_element(Direction.Begin(), Direction.End(), [](const auto a, const auto b) {
+      return itk::Math::Absolute(a) < itk::Math::Absolute(b);
+    }));
 
   // compute actual line length because the shorter distance
   // the larger deviation due to rounding to integers
   const IdentifierType mainDirectionLen = length - 1;
-  const float          euclideanLineLen = mainDirectionLen / Direction[maxDistanceDimension];
+  const float          euclideanLineLen = mainDirectionLen / itk::Math::Absolute(Direction[maxDistanceDimension]);
 
   // we are going to start at 0
   constexpr IndexType StartIndex{ 0 };

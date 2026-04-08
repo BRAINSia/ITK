@@ -74,3 +74,14 @@ TEST(BresenhamLine, FinishAtEndIndex)
   const std::vector<itk::Index<3>> indices = line.BuildLine(start, end);
   EXPECT_EQ(indices.back(), end);
 }
+
+TEST(BresenhamLine, FinishAtEndIndexNegativeDirection)
+{
+  // Test BuildLine(Index, Index) with reversed endpoints (negative direction)
+  const itk::Index<3> start{ { 250, 250, 1 } }, end{ { 0, 0, 0 } };
+
+  itk::BresenhamLine<3>            line;
+  const std::vector<itk::Index<3>> indices = line.BuildLine(start, end);
+  EXPECT_EQ(indices.front(), start);
+  EXPECT_EQ(indices.back(), end);
+}
