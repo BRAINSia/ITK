@@ -21,6 +21,9 @@
 #include "itkPoint.h"
 #include "itkMath.h"
 
+#include <algorithm>
+#include <iterator>
+
 namespace itk
 {
 template <unsigned int VDimension>
@@ -31,16 +34,26 @@ BresenhamLine<VDimension>::BuildLine(LType Direction, IdentifierType length) -> 
   /** Variables that drive the Bresenham-Algorithm */
 
   Direction.Normalize();
+
+  // The dimension with the largest difference between start and end
+  const unsigned int maxDistanceDimension =
+    std::distance(Direction.Begin(), std::max_element(Direction.Begin(), Direction.End()));
+
+  // compute actual line length because the shorter distance
+  // the larger deviation due to rounding to integers
+  const IdentifierType mainDirectionLen = length - 1;
+  const float          euclideanLineLen = mainDirectionLen / Direction[maxDistanceDimension];
+
   // we are going to start at 0
   constexpr IndexType StartIndex{ 0 };
   IndexType           LastIndex;
   for (unsigned int i = 0; i < VDimension; ++i)
   {
-    LastIndex[i] = (IndexValueType)(length * Direction[i]);
+    // round to closest voxel center to minimize the deviation from Direction
+    LastIndex[i] = Math::RoundHalfIntegerUp<IndexValueType>(euclideanLineLen * Direction[i]);
   }
-  // Find the dominant direction
-  IndexValueType maxDistance = 0;
-  unsigned int   maxDistanceDimension = 0;
+
+  const IndexValueType maxDistance = static_cast<long>(itk::Math::Absolute(LastIndex[maxDistanceDimension]));
   // Increment for the error for each step. Two times the difference between
   // start and end
   IndexType incrementError;
@@ -50,11 +63,6 @@ BresenhamLine<VDimension>::BuildLine(LType Direction, IdentifierType length) -> 
   for (unsigned int i = 0; i < VDimension; ++i)
   {
     auto distance = static_cast<long>(itk::Math::Absolute(LastIndex[i]));
-    if (distance > maxDistance)
-    {
-      maxDistance = distance;
-      maxDistanceDimension = i;
-    }
     incrementError[i] = 2 * distance;
     overflowIncrement[i] = (LastIndex[i] < 0 ? -1 : 1);
   }
@@ -113,7 +121,7 @@ BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
   {
     point0[i] = p0[i];
     point1[i] = p1[i];
-    const IdentifierType distance = itk::Math::Absolute(p0[i] - p1[i]) + 1;
+    const IdentifierType distance = itk::Math::Absolute(p0[i] - p1[i]);
     if (distance > maxDistance)
     {
       maxDistance = distance;
@@ -127,10 +135,6 @@ BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
   for (unsigned int i = 0; i < offsets.size(); ++i)
   {
     indices.push_back(p0 + offsets[i]);
-    if (indices.back() == p1)
-    {
-      break;
-    }
   }
   return indices;
 }

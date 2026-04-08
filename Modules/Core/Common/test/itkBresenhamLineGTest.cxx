@@ -64,3 +64,13 @@ TEST(BresenhamLine, BuildLineFromIndices)
 
   std::cout << "Test Passed !" << std::endl;
 }
+
+TEST(BresenhamLine, FinishAtEndIndex)
+{
+  // Test BuildLine(Index, Index) to finish at the specified end index
+  const itk::Index<3> start{ { 0, 0, 0 } }, end{ { 250, 250, 1 } };
+
+  itk::BresenhamLine<3>            line;
+  const std::vector<itk::Index<3>> indices = line.BuildLine(start, end);
+  EXPECT_EQ(indices.back(), end);
+}
