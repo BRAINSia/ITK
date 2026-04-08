@@ -116,28 +116,62 @@ template <unsigned int VDimension>
 auto
 BresenhamLine<VDimension>::BuildLine(IndexType p0, IndexType p1) -> IndexArray
 {
-  itk::Point<float, VDimension> point0;
-  itk::Point<float, VDimension> point1;
-  IdentifierType                maxDistance = 0;
+  // Integer-only N-dimensional Bresenham, guaranteeing exact start and end
+  // points. This avoids floating-point direction conversion entirely.
+  // Reference: classic Bresenham extended to N-D as used by scikit-image,
+  // OpenCV, and VTK.
+
+  // Compute displacements and find the dominant axis
+  IndexType      delta;
+  IndexType      step; // +1 or -1 per dimension
+  IndexValueType maxAbsDelta = 0;
+  unsigned int   mainAxis = 0;
   for (unsigned int i = 0; i < VDimension; ++i)
   {
-    point0[i] = p0[i];
-    point1[i] = p1[i];
-    const IdentifierType distance = itk::Math::Absolute(p0[i] - p1[i]);
-    if (distance > maxDistance)
+    delta[i] = p1[i] - p0[i];
+    step[i] = (delta[i] >= 0) ? 1 : -1;
+    const auto absDelta = static_cast<IndexValueType>(itk::Math::Absolute(delta[i]));
+    if (absDelta > maxAbsDelta)
     {
-      maxDistance = distance;
+      maxAbsDelta = absDelta;
+      mainAxis = i;
     }
   }
 
-  OffsetArray offsets = this->BuildLine(point1 - point0, maxDistance + 1);
+  // Number of pixels = steps along dominant axis + 1
+  const IdentifierType numPixels = static_cast<IdentifierType>(maxAbsDelta) + 1;
 
   IndexArray indices;
-  indices.reserve(offsets.size()); // we might not have to use the last one
-  for (unsigned int i = 0; i < offsets.size(); ++i)
+  indices.reserve(numPixels);
+
+  // Error accumulators for each secondary axis (2 * |delta[i]| per step,
+  // overflow when accumulated error >= maxAbsDelta)
+  auto accumulateError = MakeFilled<IndexType>(0);
+  auto currentIndex = p0;
+
+  for (IdentifierType s = 0; s < numPixels; ++s)
   {
-    indices.push_back(p0 + offsets[i]);
+    indices.push_back(currentIndex);
+
+    // Advance along each dimension
+    for (unsigned int i = 0; i < VDimension; ++i)
+    {
+      if (i == mainAxis)
+      {
+        currentIndex[i] += step[i];
+      }
+      else
+      {
+        accumulateError[i] += 2 * static_cast<IndexValueType>(itk::Math::Absolute(delta[i]));
+        if (accumulateError[i] >= maxAbsDelta)
+        {
+          currentIndex[i] += step[i];
+          accumulateError[i] -= 2 * maxAbsDelta;
+        }
+      }
+    }
   }
+
   return indices;
 }
 
